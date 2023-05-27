@@ -4,7 +4,8 @@
 # from flask import Flask,render_template,url_for,request
 import sys
 
-if (sys.version_info.major >= 3):
+print(sys.version_info)
+if (int(sys.version_info.major) >= 3):
     from urllib.parse import urlparse
 else:
     from urlparse import urlparse
