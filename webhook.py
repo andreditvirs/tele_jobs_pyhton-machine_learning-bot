@@ -2,6 +2,13 @@
 # -*- coding: utf-8 -*- 
 
 # from flask import Flask,render_template,url_for,request
+import sys
+
+if ((3, 0) <= sys.version_info <= (3, 9)):
+    from urllib.parse import urlparse
+elif ((2, 0) <= sys.version_info <= (2, 9)):
+    from urlparse import urlparse
+    
 import urllib.parse
 import pickle
 import json
@@ -54,17 +61,17 @@ def predict():
 					text_prediction = "Halo kak <b>"+result["message"]["from"]["first_name"]+"</b>, untuk kenyamanan bersama mohon untuk tidak mengirimkan pesan yang menyimpang dari topik obrolan grup yaa. Yuk kirim lagi pesan yang berkaitan dengan lowongan pekerjaan! 🙌\n—<i>JoobseekBot</i> ☺️"
 					response = requests.get("https://api.telegram.org/bot"+token+"/sendMessage?parse_mode=HTML&chat_id="+str(chat_id_from)+"&text="+urllib.parse.quote(text_prediction, safe=''))
 					response = response.json()
-					time.sleep(5)
+					time.sleep(8)
 					requests.get("https://api.telegram.org/bot"+token+"/deleteMessage?chat_id="+str(response["result"]["chat"]["id"])+"&message_id="+str(response["result"]["message_id"]))
 			else:
 				exit()
 	except BaseException as e:
 		prediction.message = str(e)
-		print(e)
 		return prediction.to_json()
 if __name__ == '__main__':
 	for i in range(3500):
 		predict()
 		time.sleep(1)
+	exit()
 	# app.run(debug=True)
 	
