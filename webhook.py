@@ -61,6 +61,7 @@ def predict():
 				exit()
 	except BaseException as e:
 		prediction.message = str(e)
+		print(e)
 		return prediction.to_json()
 if __name__ == '__main__':
 	for i in range(3500):
