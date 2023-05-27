@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- 
+
 # from flask import Flask,render_template,url_for,request
 import urllib.parse
 import pickle
