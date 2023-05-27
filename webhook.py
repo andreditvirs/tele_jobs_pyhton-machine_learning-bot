@@ -34,7 +34,7 @@ def predict():
 			prediction.message = "Data is retrieved successfuly"
 
 			if(int(output)):
-				text_prediction = "Halo kak, untuk kenyamanan bersama mohon untuk tidak mengirimkan pesan yang menyimpang dari topik obrolan grup yaa. Yuk kirim lagi pesan yang berkaitan dengan lowongan pekerjaan!🙌 —JoobseekBot ☺️"
+				text_prediction = "Halo kak, untuk kenyamanan bersama mohon untuk tidak mengirimkan pesan yang menyimpang dari topik obrolan grup yaa. Yuk kirim lagi pesan yang berkaitan dengan lowongan pekerjaan! —JoobseekBot"
 			requests.get("https://api.telegram.org/bot6004748378:AAGjqym8DMEj60N3-f59NXIuQewty8rDbCs/sendMessage?parse_mode=HTML&chat_id="+str(chat_id_from)+"&text="+text_prediction)
 	except BaseException as e:
 		prediction.message = str(e)
