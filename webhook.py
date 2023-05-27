@@ -52,8 +52,7 @@ def predict():
 				if(int(output)):
 					requests.get("https://api.telegram.org/bot"+token+"/deleteMessage?chat_id="+str(chat_id_from)+"&message_id="+str(result["message"]["message_id"]))
 					text_prediction = "Halo kak <b>"+result["message"]["from"]["first_name"]+"</b>, untuk kenyamanan bersama mohon untuk tidak mengirimkan pesan yang menyimpang dari topik obrolan grup yaa. Yuk kirim lagi pesan yang berkaitan dengan lowongan pekerjaan! 🙌\n—<i>JoobseekBot</i> ☺️"
-					# response = requests.get("https://api.telegram.org/bot"+token+"/sendMessage?parse_mode=HTML&chat_id="+str(chat_id_from)+"&text="+urllib.parse.quote(text_prediction, safe=''))
-					response = requests.get("https://api.telegram.org/bot"+token+"/sendMessage?parse_mode=HTML&chat_id="+str(chat_id_from)+"&text="+urllib.pathname2url(text_prediction, safe=''))
+					response = requests.get("https://api.telegram.org/bot"+token+"/sendMessage?parse_mode=HTML&chat_id="+str(chat_id_from)+"&text="+urllib.parse.quote(text_prediction, safe=''))
 					response = response.json()
 					time.sleep(8)
 					requests.get("https://api.telegram.org/bot"+token+"/deleteMessage?chat_id="+str(response["result"]["chat"]["id"])+"&message_id="+str(response["result"]["message_id"]))
